@@ -1,6 +1,7 @@
 import apiServices from "../../Services/api-services";
-import { Product } from "@/src/Types/redux-types";
+
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Product } from "../../Types/redux-types";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchAll",
@@ -22,10 +23,7 @@ export const UpdateProduct = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
-      const updateProduct = await apiServices.put(
-        `/product/${productId}`,
-        body
-      );
+      await apiServices.put(`/product/${productId}`, body);
       return { productId: productId, updateProduct: body };
     } catch (error: any) {
       console.log("error while updating product", error.message);

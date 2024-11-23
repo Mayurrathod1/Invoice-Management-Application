@@ -1,6 +1,7 @@
 import apiServices from "../../Services/api-services";
-import { Customer } from "@/src/Types/redux-types";
+
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Customer } from "../../Types/redux-types";
 
 export const fetchCustomers = createAsyncThunk(
   "customers/fetchAll",

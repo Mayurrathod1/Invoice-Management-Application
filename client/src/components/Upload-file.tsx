@@ -1,4 +1,4 @@
-import { Check, Upload, AlertCircle } from "lucide-react";
+import { Check, Upload, AlertCircle, CirclePlus } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import Dialog from "./ui/Dialog";
 import { useAppDispatch } from "../Store";
@@ -86,9 +86,11 @@ const FileUploader = () => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="inline-flex text-sm items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-primary h-10 py-2 px-4 bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700"
+        className="flex items-center justify-center gap-2 rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 text-gray-800 
+        dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 h-8 px-3"
       >
-        Upload File
+        <CirclePlus size={16} />
+        <span className="font-medium">Add </span>
       </button>
 
       <Dialog isOpen={isOpen} onClose={handleModalClose} title="Upload File">

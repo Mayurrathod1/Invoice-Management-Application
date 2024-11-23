@@ -1,5 +1,5 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { File, Plus, Edit, Trash2, Eye, Search } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Search } from "lucide-react";
 import { RootState, useAppDispatch, useAppSelector } from "../Store";
 import { fetchInvoices } from "../Store/Thunks/invoiceThunks";
 import { Invoice } from "../Types/redux-types";
@@ -7,8 +7,6 @@ import FileUploader from "./Upload-file";
 import NoItemState from "./NoItemState";
 import ErrorState from "./ErrorState";
 import Loading from "./loading";
-
-// Sample initial invoice data
 
 interface InvoiceInterface {
   id: string;
@@ -40,7 +38,7 @@ const LeftSideInvoiceBar = ({
     useState<InvoiceInterface | null>(null);
 
   // Filter invoices based on search term
-  const filteredInvoices = items.filter((invoice) =>
+  const filteredInvoices = items.filter((invoice: Invoice) =>
     invoice.serialNumber.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -49,7 +47,7 @@ const LeftSideInvoiceBar = ({
       {/* Sidebar - Invoice List */}
       <div className="w-full  border-r overflow-y-auto">
         <div className="w-full p-2 border-b flex justify-evenly items-center mx-auto">
-          <h2 className="text-2xl font-bold">Invoices</h2>
+          <h2 className="text-2xl font-semibold">Invoices</h2>
 
           <FileUploader />
         </div>
@@ -77,10 +75,10 @@ const LeftSideInvoiceBar = ({
             <Loading info="Loading Invoices " />
           ) : error ? (
             <ErrorState errInfo="Error Loading Invoices... " />
-          ) : items.length == 0 ? (
+          ) : items.length === 0 ? (
             <NoItemState itemName="invoices" />
           ) : (
-            filteredInvoices.map((invoice) => (
+            filteredInvoices.map((invoice: Invoice) => (
               <div
                 key={invoice.id}
                 onClick={() => {
@@ -97,9 +95,6 @@ const LeftSideInvoiceBar = ({
                 <div className="flex justify-between items-center">
                   <div>
                     <p className="font-bold">{invoice?.serialNumber}</p>
-                    <p className="text-sm text-gray-600">
-                      {/* {invoice.CustomerName} */}
-                    </p>
                   </div>
                   <div className="flex items-center"></div>
                 </div>

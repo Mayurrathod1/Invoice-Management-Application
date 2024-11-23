@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Invoice, Product } from "@/src/Types/redux-types";
+
 import { fetchProducts, UpdateProduct } from "../Thunks/productThunk";
+import { Product } from "../../Types/redux-types";
 
 interface ProductsState {
   items: Product[];

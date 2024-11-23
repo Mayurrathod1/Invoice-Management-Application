@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchInvoices, UpdateInvoice } from "../Thunks/invoiceThunks";
-import { Invoice } from "@/src/Types/redux-types";
+import { Invoice } from "../../Types/redux-types";
+
 
 interface InvoiceState {
   items: Invoice[];

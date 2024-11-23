@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Pencil, Trash2, Plus, File } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Trash2, File } from "lucide-react";
 import { RootState, store, useAppDispatch, useAppSelector } from "../Store";
 import { fetchProducts, UpdateProduct } from "../Store/Thunks/productThunk";
 import { Customer, Invoice, Product } from "../Types/redux-types";
@@ -30,15 +30,18 @@ const InvoiceProductTable = ({ invoice }: InvoiceProductTableProps) => {
     (state: RootState) => state.invoices
   );
 
-  const filteredInvoice = invoices.find((inv) => inv.id === invoice?.id);
+  const filteredInvoice = invoices.find(
+    (inv: Invoice) => inv.id === invoice?.id
+  );
 
-  const filteredItems = items.filter((item) => item.invoice_id === invoice?.id);
+  const filteredItems = items.filter(
+    (item: Product) => item.invoice_id === invoice?.id
+  );
 
   const itemsPerPage = 5;
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
 
   const currentProducts = filteredItems.slice(
     startIndex,
@@ -49,7 +52,9 @@ const InvoiceProductTable = ({ invoice }: InvoiceProductTableProps) => {
     (state: RootState) => state.customers
   );
 
-  const customer = customers.find((c) => c?.invoice_id === invoice?.id);
+  const customer = customers.find(
+    (c: Customer) => c?.invoice_id === invoice?.id
+  );
 
   const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   // Handle customer name edit
@@ -98,7 +103,6 @@ const InvoiceProductTable = ({ invoice }: InvoiceProductTableProps) => {
         // After product is updated, get the new total
         const newTotal = selectInvoiceTotal(invoice?.id!)(store.getState());
 
-        console.log("newTotal: ", newTotal);
         // Only update invoice if the total has actually changed
         if (newTotal !== lastTotalRef.current) {
           lastTotalRef.current = newTotal;
@@ -161,10 +165,10 @@ const InvoiceProductTable = ({ invoice }: InvoiceProductTableProps) => {
                     <Loading info="Loading Products " />
                   ) : error ? (
                     <ErrorState errInfo="Error Loading Products... " />
-                  ) : items.length == 0 ? (
+                  ) : items.length === 0 ? (
                     <NoItemState itemName="products" />
                   ) : (
-                    currentProducts.map((product) => (
+                    currentProducts.map((product: Product) => (
                       <tr
                         key={product.id}
                         className=" hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"

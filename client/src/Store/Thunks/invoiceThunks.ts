@@ -1,7 +1,5 @@
 import apiServices from "../../Services/api-services";
-import { Invoice } from "@/src/Types/redux-types";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 
 export const fetchInvoices = createAsyncThunk(
   "invoices/fetchAll",

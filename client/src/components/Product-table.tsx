@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Search, ArrowUpDown } from "lucide-react";
 import { RootState, useAppSelector } from "../Store";
 import PaginationFooter from "./PaginationFooter";
 import ErrorState from "./ErrorState";
 import Loading from "./loading";
 import NoItemState from "./NoItemState";
+import { Product } from "../Types/redux-types";
 
 const ProductsTable = () => {
   const { items, error, loading } = useAppSelector(
@@ -17,8 +18,6 @@ const ProductsTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(products.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  // const currentProducts = products.slice(startIndex, endIndex);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [sortConfig, setSortConfig] = useState({
@@ -27,7 +26,7 @@ const ProductsTable = () => {
   });
 
   // Filter products based on search
-  const filteredProducts = products.filter((product) =>
+  const filteredProducts = products.filter((product: Product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -134,9 +133,9 @@ const ProductsTable = () => {
               <Loading info="Loading Products..." />
             ) : error ? (
               <ErrorState errInfo="Error Loading Products... " />
-            ) : items.length == 0 ? (
+            ) : items.length === 0 ? (
               <NoItemState itemName="products" />
-            ) : ( 
+            ) : (
               currentProducts.map((product) => (
                 <tr
                   key={product.id}

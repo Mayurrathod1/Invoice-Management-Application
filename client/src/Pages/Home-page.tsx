@@ -1,8 +1,6 @@
 import { ArrowRight } from "lucide-react";
-import React from "react";
 import { Link } from "react-router-dom";
 import Navigation from "../components/Navigation";
-import { Button } from "../components/ui/button";
 
 type Props = {};
 
@@ -21,10 +19,10 @@ const Homepage = (props: Props) => {
           </h1>
         </div>
         <Link to={"/dashboard"}>
-          <Button className="inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-gray-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50 gap-3">
+          <button className="inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-gray-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50 gap-3">
             <span>Get Started</span>
             <ArrowRight size={20} />
-          </Button>
+          </button>
         </Link>
       </section>
     </main>

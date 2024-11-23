@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchInvoices } from "../Thunks/invoiceThunks";
-import { Customer } from "@/src/Types/redux-types";
+
 import { fetchCustomers, UpdateCustomer } from "../Thunks/customerThunks";
+import { Customer } from "../../Types/redux-types";
 
 interface CustomerState {
   items: Customer[];
