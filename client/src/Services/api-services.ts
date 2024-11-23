@@ -2,8 +2,8 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 const BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "https://invoiceai-dataextractor.onrender.com"
-    : "http://localhost:8080";
+    ? process.env.REACT_APP_PROD_SERVER
+    : process.env.REACT_APP_LOCAL_SERVER;
 
 const DEFAULT_HEADERS = {
   "Content-Type": "application/json",
