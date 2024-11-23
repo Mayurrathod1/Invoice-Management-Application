@@ -16,19 +16,17 @@ The demo video covers:
 ## 📸 Screenshots
 
 ### Dashboard Overview
-![Dashboard Overview](/screenshots/dashboard.png)
+![image](https://github.com/user-attachments/assets/b96e73fc-065b-4393-9512-f33f1a6e84bb)
+
 *Main dashboard showing all three tabs and navigation*
 
-### Invoice Management
-![Invoice Tab](/screenshots/invoices.png)
-*Invoice tab with detailed transaction view*
-
 ### Product Catalog
-![Products Tab](/screenshots/products.png)
+![image](https://github.com/user-attachments/assets/32fb2226-3340-4c5b-9961-c04be8c81a32)
+
 *Products management interface with sorting enabled*
 
 ### Customer Management
-![Customers Tab](/screenshots/customers.png)
+![image](https://github.com/user-attachments/assets/3869a9d9-4fe3-43e6-abf2-ca4035eedfdf)
 *Customer information and purchase history*
 
 ### Features Showcase
@@ -39,11 +37,12 @@ The demo video covers:
 |![image](https://github.com/user-attachments/assets/794532d7-eeb0-48fd-958f-f75183a45ead) | ![image](https://github.com/user-attachments/assets/932885cf-f36f-47b8-8aef-638ef5b6e724)  |
 
 #### Data Validation
-![Validation Example](/screenshots/validation.png)
+![Screenshot from 2024-11-23 16-49-39](https://github.com/user-attachments/assets/4e825e84-5380-49f7-830b-da43f5d7fbfe)
 *Example of form validation and error handling*
 
 #### File Upload Process
-![Upload Process](/screenshots/upload-process.png)
+![image](https://github.com/user-attachments/assets/c2e834ad-9300-4f3e-89e5-20ed32bea9a5)
+
 *Step-by-step file upload and processing visualization*
 
 ## 🚀 Features
